@@ -11,4 +11,3 @@ class Solution(object):
                 return [d[target - num], i]
             d[num] = i
         # no special case handling becasue it's assumed that it has only one solution
-            

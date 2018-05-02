@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution(object):
     # maybe standard version
     def _addTwoNumbers(self, l1, l2):
@@ -16,23 +17,23 @@ class Solution(object):
         carry = 0
         while l1 and l2:
             p.next = ListNode(l1.val + l2.val + carry)
-            carry = p.next.val / 10
+            carry = p.next.val // 10
             p.next.val %= 10
             p = p.next
             l1 = l1.next
             l2 = l2.next
-        
+
         res = l1 or l2
         while res:
             p.next = ListNode(res.val + carry)
-            carry = p.next.val / 10
+            carry = p.next.val // 10
             p.next.val %= 10
             p = p.next
             res = res.next
         if carry:
             p.next = ListNode(1)
         return dummy.next
-    
+
     # shorter version
     def addTwoNumbers(self, l1, l2):
         p = dummy = ListNode(-1)
@@ -45,6 +46,3 @@ class Solution(object):
             l2 = l2 and l2.next
             p = p.next
         return dummy.next
-            
-        
-        
